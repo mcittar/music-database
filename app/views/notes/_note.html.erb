@@ -1,6 +1,11 @@
 <div>
-  <% @track.notes.each do |note| %>
-    <%= note.user.email  %>
-    <%= note.content %>
-  <% end %>
+  <table>
+      <% @track.notes.each do |note| %>
+      <tr>
+        <td><%= note.user.email  %> says:  <td>
+        <td><%= note.content %></td>
+        <td><%= button_to 'Delete', note_url(note), method: :delete %></td>
+      </tr>
+      <% end %>
+  </table>
 </div>
