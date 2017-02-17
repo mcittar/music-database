@@ -1,5 +1,7 @@
 class TracksController < ApplicationController
 
+  before_action :require_login
+
   def index
     @tracks = Track.all.order(:id)
     render :index

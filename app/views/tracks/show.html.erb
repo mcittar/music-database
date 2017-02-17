@@ -5,7 +5,7 @@
   <br>Type:
   <%= @track.variety %> track
   <br>Lyrics:
-  <%= @track.lyrics %>
+  <%= ugly_lyrics(@track.lyrics) %>
   <%= render 'notes/note' %>
   <%= render 'notes/form' %>
 </p>

@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
 
+  before_action :require_login
+
   def index
     @albums = Album.all.order(:id)
     render :index
