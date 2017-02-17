@@ -1,19 +1,7 @@
-
 <% @bands.each do |band| %>
   <%= band.name %>
-  <form action="<%= edit_band_url(band) %>" name="band[id]" value="<%= band.id %>" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="submit" name="" value="Edit">
-  </form>
-  <form action="<%= band_url(band) %>" name="band[id]" value="<%= band.id %>" method="get">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="submit" name="" value="Show">
-  </form>
+  <%= button_to 'Show', band_url(band), method: :get %>
   <br>
 <% end %>
 <br>
-<br>
-<form action="<%= new_band_url %>" method="get">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="submit" name="" value="Create new Band">
-</form>
+<%= button_to 'Create new Band', new_band_url, method: :get %>

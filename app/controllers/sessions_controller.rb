@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to user_url(current_user)
+      redirect_to bands_url
     else
       render :new
     end
@@ -16,10 +16,9 @@ class SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      render json: "Logged In"
+      redirect_to bands_url
     else
-      # redirect_to new_session_url
-      render json: "Failed to log in"
+      redirect_to new_session_url
     end
 
   end

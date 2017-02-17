@@ -1,0 +1,11 @@
+<div>
+  New Note<br>
+  <form action="<%= notes_url %>" method="post">
+    <input type="hidden" name="note[track_id]" value="<%= @track.id %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <textarea name="note[:content]" rows="8" cols="80"></textarea>
+
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</div>

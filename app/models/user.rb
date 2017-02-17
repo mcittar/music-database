@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   before_validation :ensure_session_token
 
+  has_many :tracks
+
   attr_reader :password
 
   def self.generate_session_token

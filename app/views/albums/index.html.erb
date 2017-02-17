@@ -1,0 +1,9 @@
+
+<% @albums.each do |album| %>
+  <%= album.title %><br>
+  Artist: <%= Band.find(album.band_id).name %>
+  <%= button_to 'Show', album_url(album), method: :get %>
+  <br>
+<% end %>
+<br>
+<%= button_to 'Create Album', new_album_url, method: :get %>

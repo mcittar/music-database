@@ -1,0 +1,14 @@
+
+<p><%= @album.title %>
+  <br>Artist:
+<%= Band.find(@album.band_id).name %>
+  <br>Recorded:
+  <%= @album.recorded %>
+</p>
+
+  <%= button_to 'Delete', album_url(@album), method: :delete %>
+  <%= button_to 'Edit', edit_album_url(@album), method: :get %>
+  <%= button_to 'Back', albums_url, method: :get %>
+  <br>
+  <%= button_to 'Bands', bands_url, method: :get %>
+  <%= button_to 'Tracks', tracks_url, method: :get %>

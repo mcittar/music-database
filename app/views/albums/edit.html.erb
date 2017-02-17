@@ -1,0 +1,44 @@
+<form action="<%= album_url(@album) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <table>
+  <tr>
+    <td><label>Band</label></td>
+    <td><select name="album[band_id]">
+      <option disabled"" value="">-- Please select a Band --</option>
+      <% @bands.each do |band| %>
+        <option value="<%= band.id %>" <%= 'selected' if @album.band_id == band.id %>><%= band.name %></option>
+      <% end %>
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td><label for="">Album Name</label></td>
+    <td><input type="text" name="album[title]" value="<%= @album.title %>"></td>
+  </tr>
+  <tr>
+    <td><label>Type</label></td>
+    <td>
+      <table>
+        <tr>
+          <td>Studio</td>
+          <td><input type="radio" name="album[recorded]" value="studio" <%= 'checked' if @album.recorded == 'studio' %>></td>
+        </tr>
+        <tr>
+          <td>Live</td>
+          <td><input type="radio" name="album[recorded]" value="live" <%= 'checked' if @album.recorded == 'live' %>></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Edit"></td>
+  </tr>
+  <br>
+</table>
+
+</form>
+
+<%= button_to 'Back', album_url(@album), method: :get %>

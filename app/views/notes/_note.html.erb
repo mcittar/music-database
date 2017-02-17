@@ -1,0 +1,6 @@
+<div>
+  <% @track.notes.each do |note| %>
+    <%= note.user.email  %>
+    <%= note.content %>
+  <% end %>
+</div>

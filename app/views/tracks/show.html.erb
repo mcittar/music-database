@@ -1,0 +1,17 @@
+
+<p>Title: <%= @track.name %>
+  <br>Artist:
+<%= Album.find(@track.album_id).title %>
+  <br>Type:
+  <%= @track.variety %> track
+  <br>Lyrics:
+  <%= @track.lyrics %>
+  <%= render 'notes/note', object: @track %>
+  <%= render 'notes/form', object: @track %>
+</p>
+
+  <%= button_to 'Delete', track_url(@track), method: :delete %>
+  <%= button_to 'Edit', edit_track_url(@track), method: :get %>
+  <%= button_to 'Back', tracks_url, method: :get %>
+  <br>
+  <%= button_to 'Albums', albums_url, method: :get %>

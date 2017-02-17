@@ -1,0 +1,9 @@
+
+<% @tracks.each do |track| %>
+  <%= track.name %><br>
+  Album: <%= Album.find(track.album_id).title %>
+  <%= button_to 'Show', track_url(track), method: :get %>
+  <br>
+<% end %>
+<br>
+<%= button_to 'Create Track', new_track_url, method: :get %>

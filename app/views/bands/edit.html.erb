@@ -7,5 +7,7 @@
   <br>
   <input type="text" name="band[name]" value="<%= @band.name %>">
   <br>
-  <input type="submit" value="Update Band">
+  <input type="submit" value="Update">
 </form>
+
+  <%= button_to 'Back', band_url(@band), method: :get %>

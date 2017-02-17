@@ -1,0 +1,49 @@
+<form action="<%= track_url(@track) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <table>
+  <tr>
+    <td><label>Album</label></td>
+    <td><select name="track[album_id]">
+      <option disabled="" value="">-- Please select an Album --</option>
+      <% @albums.each do |album| %>
+        <option value="<%= album.id %>" <%= 'selected' if album.id == @track.album_id %>><%= album.title %></option>
+      <% end %>
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td><label for="">Track Name</label></td>
+    <td><input type="text" name="track[name]" value="<%= @track.name %>"></td>
+  </tr>
+  <tr>
+    <td><label>Type</label></td>
+    <td>
+      <table>
+        <tr>
+          <td>Bonus</td>
+          <td><input type="radio" name="track[variety]" value="bonus" <%= 'checked' if @track.variety == 'bonus' %>></td>
+        </tr>
+        <tr>
+          <td>Regular</td>
+          <td><input type="radio" name="track[variety]" value="regular" <%= 'checked' if @track.variety == 'regular' %>></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>Lyrics</td>
+    <td><textarea name="track[lyrics]" rows="8" cols="80"><%= @track.lyrics %>
+    </textarea></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Edit Track"></td>
+  </tr>
+  <br>
+</table>
+
+</form>
+
+<%= button_to 'Back', tracks_url, method: :get %>
